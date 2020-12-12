@@ -2,16 +2,16 @@ CC = gcc
 
 CFLAGS = -std=c99 -Wall 
 
-INC_DIR = include
-SRC_DIR = src
-BIN_DIR = bin
+INCLUDES = -Iinclude
+SRC = src
+BIN = bin
 
 TARGET = main
 
 all: $(TARGET)
 
-$(TARGET): $(SRC_DIR)/$(TARGET).c
-	$(CC) $(CFLAGS) -o $(BIN_DIR)/$(TARGET) $(SRC_DIR)/$(TARGET).c
+$(TARGET): $(SRC)/$(TARGET).c
+	$(CC) $(INCLUDES) $(CFLAGS) -o $(BIN)/$(TARGET) $(SRC)/$(TARGET).c
 
 clean:
-	$(RM) $(BIN_DIR)/$(TARGET)
+	$(RM) $(BIN)/$(TARGET)
