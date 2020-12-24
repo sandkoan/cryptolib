@@ -8,6 +8,7 @@ BIN = bin
 
 TARGET = main
 
+
 all: $(TARGET)
 
 $(TARGET): $(SRC)/$(TARGET).c
