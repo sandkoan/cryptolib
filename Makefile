@@ -2,7 +2,6 @@ CC = gcc
 
 CFLAGS = -std=c99 -Wall 
 
-# INCLUDES = -Iinclude
 SRC = src
 BIN = bin
 
@@ -11,11 +10,8 @@ TARGET = main
 
 all: $(TARGET)
 
-# $(TARGET): $(SRC)/$(TARGET).c
-# 	$(CC) $(INCLUDES) $(CFLAGS) -o $(BIN)/$(TARGET) $(SRC)/$(TARGET).c
-
 $(TARGET): $(SRC)/$(TARGET).c
-	$(CC) $(CFLAGS) -o $(BIN)/$(TARGET) $(SRC)/$(TARGET).c
+	$(CC) $(CFLAGS) $(SRC)/$(TARGET).c $(wildcard src/*.c) -o $(BIN)/$(TARGET)
 
 clean:
 	$(RM) $(BIN)/$(TARGET)
