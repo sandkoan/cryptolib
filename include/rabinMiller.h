@@ -7,12 +7,12 @@
 #include <stdlib.h>
 
 
-int modExpo(int base, int exponent, int mod);
+long long mod_expo(long long base, long long exponent, long long mod);
 
-bool rabinMiller(int num);
+bool rabin_miller(long long num);
 
-bool isPrime(int num);
+bool is_prime(long long num);
 
-long generateLargePrime(int keysize);
+long generate_large_prime(int keysize);
 
 #endif
