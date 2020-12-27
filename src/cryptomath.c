@@ -1,34 +1,47 @@
 #include "../include/crypt.h"
 
 int gcd(int a, int b) {
-    a = (a > 0) ? a : -a;
-    b = (b > 0) ? b : -b;
-
-    while (a != b) {
-        if (a > b)
-        a -= b;
-        else
-        a -= b;
+    int temp;
+    while (a != 0) {
+        temp = a;
+        a = b % a;
+        b = temp;
     }
-    return a;
+    return b;
 }
 
+/*
+Returns modulo inverse of a with
+respect to m using extended Euclid
+Algorithm - Assumption: a and m are
+coprimes, i.e., gcd(a, m) = 1
+*/
 int findModInverse(int a, int m) {
-    if (gcd(a, m) != 1)
-        return -1;
+    int m0 = m;
+    int y = 0, x = 1;
 
-    int u1 = 1, u2 = 0, u3 = a;
-    int v1 = 0, v2 = 1, v3 = m;
+    if (m == 1)
+        return 0;
 
-    while (v3 != 0) {
-        int q = (int) (u3 / v3);
-        v1 = (u1 - q * v1);
-        v2 = (u2 - q * v2);
-        v3 = (u3 - q * v3);
-        u1 = v1;
-        u2 = v2;
-        u3 = v3;
-  }
+    while (a > 1) {
+        // q is quotient
+        int q = a / m;
 
-    return u1 % m;
+        int t = m;
+
+        // m is remainder now, process same as Euclid's algo
+        m = a % m;
+        a = t;
+        t = y;
+
+        // Update x and y
+        y = x - q * y;
+        x = t;
+    }
+
+    // Make x positive
+    if (x < 0)
+        x += m0;
+
+    return x;
 }
