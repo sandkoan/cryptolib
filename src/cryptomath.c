@@ -1,11 +1,17 @@
-int gcd(int a, int b) {
-    while (a != 0) {
-        a = b % a;
-        b = a;
-    }
-    return b;
-}
+#include "../include/crypt.h"
 
+int gcd(int a, int b) {
+    a = (a > 0) ? a : -a;
+    b = (b > 0) ? b : -b;
+
+    while (a != b) {
+        if (a > b)
+        a -= b;
+        else
+        a -= b;
+    }
+    return a;
+}
 
 int findModInverse(int a, int m) {
     if (gcd(a, m) != 1)
@@ -22,7 +28,7 @@ int findModInverse(int a, int m) {
         u1 = v1;
         u2 = v2;
         u3 = v3;
-    }
+  }
 
     return u1 % m;
 }
