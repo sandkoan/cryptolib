@@ -1,6 +1,22 @@
 #include "../include/rabinMiller.h"
 
-// int modExpo(int base, int exponent, int mod) {}
+int modExpo(int base, int exponent, int mod) {
+    int res = 1;
+
+    base = base % mod;
+
+    if (base == 0)
+        return 0;
+
+    while (exponent > 0) {
+        if (exponent & 1)
+            res = (res * base) % mod;
+
+        exponent = exponent >> 1;
+        base = (base * base) % mod;
+    }
+    return res;
+}
 
 bool rabinMiller(int num) {
     int s = num - 1;
