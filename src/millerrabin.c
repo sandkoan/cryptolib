@@ -1,4 +1,4 @@
-#include "../include/rabinmiller.h"
+#include "../include/millerrabin.h"
 
 /*
  * Calculates (a * b) % c given a * b might overflow
@@ -43,7 +43,7 @@ long long mod_expo(long long base, long long exponent, long long mod) {
 /*
  * Determines whether num is prime given number of iterations
  */
-bool rabin_miller(long long num, int iter) {
+bool miller_rabin(long long num, int iter) {
     int i;
     long long s;
 

@@ -1,10 +1,10 @@
-#include "../include/crypt.h"
+#include "../include/cryptomath.h"
 
 /*
 Calculates modular inverse of a with respect to m with extended Euclidean algorithm
 Assuming a and m are coprime
 */
-long long findModInverse(long long a, long long m) {
+long long find_mod_inverse(long long a, long long m) {
     long long m0 = m;
     long long y = 0, x = 1;
 
