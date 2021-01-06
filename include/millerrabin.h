@@ -1,7 +1,6 @@
 #ifndef MILLER_RABIN_H
 #define MILLER_RABIN_H
 
-#include <math.h>
 #include <stdbool.h>
 #include <stdlib.h>
 
