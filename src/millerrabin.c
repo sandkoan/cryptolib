@@ -44,20 +44,26 @@ long long mod_expo(long long base, long long exponent, long long mod) {
  * Determines whether num is prime given number of iterations
  */
 bool miller_rabin(long long num, int iter) {
+    if (sodium_init() < 0) {
+        /* panic! the library couldn't be initialized, it is not safe to use */
+    }
+
     int i;
     long long s;
 
     if (num < 2)
         return 0;
 
-    if (num != 2 && num % 2 == 0)
+    if (num != 2 && (num & 1) == 0)
         return 0;
 
     s = num - 1;
-    while (s % 2 == 0)
+    while ((s & 1) == 0)
         s /= 2;
 
     for (i = 0; i < iter; i++) {
+
+        // TODO: Replace with libsodium implementation
         long long a = rand() % (num - 1) + 1, temp = s;
         long long mod = mod_expo(a, temp, num);
 
@@ -66,7 +72,7 @@ bool miller_rabin(long long num, int iter) {
             temp *= 2;
         }
 
-        if (mod != num - 1 && temp % 2 == 0)
+        if (mod != num - 1 && (temp & 1) == 0)
             return 0;
     }
     

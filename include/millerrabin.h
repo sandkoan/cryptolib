@@ -3,6 +3,7 @@
 
 #include <stdbool.h>
 #include <stdlib.h>
+#include <sodium.h>
 
 
 long long mod_mul(long long a, long long b, long long mod);
