@@ -2,7 +2,4 @@
 
 # Crypto Lib
 
-A lean and powerful cryptography library written in C that aims to be a replacement for `crypt.h`. 
-
-## Requirements
-Cryptographically secure random number generation requires [libsodium](https://github.com/jedisct1/libsodium).
+A lean and powerful cryptography library written in C that aims to be a replacement for `crypt.h`.
